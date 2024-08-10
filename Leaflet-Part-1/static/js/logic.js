@@ -1,9 +1,9 @@
-// Store our API endpoint as queryUrl.
+// Store API endpoint as queryUrl.
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
 
-// Perform a GET request to the query URL.
+// GET request to the query URL.
 d3.json(queryUrl).then(function(data) {
-  // Once we get a response, send the data.features object to the createFeatures function.
+  //send the data.features object to the createFeatures function.
   createFeatures(data.features);
 });
 
@@ -37,7 +37,7 @@ function createFeatures(earthquakeData) {
     onEachFeature: onEachFeature
   });
 
-  // Send our earthquakes layer to the createMap function.
+  // Send earthquakes layer to the createMap function.
   createMap(earthquakes);
 }
 
@@ -64,7 +64,7 @@ function createMap(earthquakes) {
     Earthquakes: earthquakes
   };
 
-  // Create our map, giving it the streetmap and earthquakes layers to display on load.
+  // Create map, giving it the streetmap and earthquakes layers to display on load.
   var myMap = L.map("map", {
     center: [37.09, -95.71],
     zoom: 5,
@@ -72,7 +72,7 @@ function createMap(earthquakes) {
   });
 
   // Create a layer control.
-  // Pass in our baseMaps and overlayMaps.
+  // Pass in baseMaps and overlayMaps.
   // Add the layer control to the map.
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
